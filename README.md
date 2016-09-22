@@ -20,6 +20,7 @@ This project's objective is to show Example DDD with CQRS+Event Sourcing.
     - `Main` object is what for bootstrap.
     - `TodoWriteService` trait is the controller component for write side.
     - `TodoReadService` trait is the controller component for read size.
+    - There are models in the `json` package.
 1. Domain Layer
     - `Todo` class is a state in the `TodoAggregate`.
     - `TodoAggregate` class is implemented by the Actor. It's DDD's Aggregate Root.
