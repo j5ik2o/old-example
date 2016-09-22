@@ -48,13 +48,13 @@ class TodoDao(pp: ProfileProvider) {
    * @param ec [ExecutionContext]
    * @return Unit of Future
    */
-  def update(id: TodoId, text: String, updateAt: ZonedDateTime)(implicit ec: ExecutionContext): Future[Unit] = {
+  def update(id: TodoId, text: String, updateAt: ZonedDateTime, version: Long)(implicit ec: ExecutionContext): Future[Unit] = {
     db.run {
-      logger.debug(s"update $id, $text, $updateAt")
+      logger.debug(s"update $id, $text, $updateAt, $version")
       Todos
         .filter(_.id === id)
-        .map(t => (t.text, t.updateAt))
-        .update(text, updateAt)
+        .map(t => (t.text, t.updateAt, t.version))
+        .update(text, updateAt, version)
     }.map { result =>
       logger.debug("result = " + result)
       if (result == 0)

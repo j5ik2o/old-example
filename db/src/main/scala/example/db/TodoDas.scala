@@ -16,14 +16,13 @@ class TodoDas(todoDao: TodoDao) {
     Source.fromPublisher(todoDao.resolveAllAsStream)
 
   def create(todo: Todo)(implicit ec: ExecutionContext): Source[Unit, NotUsed] =
-    Source.single(todo).mapAsync(1) { todo =>
+    Source.fromFuture {
       todoDao.create(todo)
     }
 
-  def update(id: TodoId, text: String, updateAt: ZonedDateTime)(implicit ec: ExecutionContext): Source[Unit, NotUsed] =
-    Source.single((id, text, updateAt)).mapAsync(1) {
-      case (id, text, updateAt) =>
-        todoDao.update(id, text, updateAt)
+  def update(id: TodoId, text: String, updateAt: ZonedDateTime, version: Long)(implicit ec: ExecutionContext): Source[Unit, NotUsed] =
+    Source.fromFuture {
+      todoDao.update(id, text, updateAt, version)
     }
 
   def delete(id: TodoId)(implicit ec: ExecutionContext): Source[Unit, NotUsed] =

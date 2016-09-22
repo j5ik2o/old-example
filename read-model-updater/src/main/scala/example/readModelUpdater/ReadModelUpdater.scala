@@ -12,7 +12,14 @@ class ReadModelUpdater(implicit val system: ActorSystem) {
     PersistenceQuery(system)
       .readJournalFor[LeveldbReadJournal](LeveldbReadJournal.Identifier)
 
-  val persistenceIds: Source[String, NotUsed] = readJournal.allPersistenceIds()
+  val persistenceIdsSource: Source[String, NotUsed] = readJournal.allPersistenceIds()
+
+  val getPersistenceWithModelNameFlow = persistenceIdsSource.map{ id =>
+    val modelName = id.split("-").head
+    (id, modelName)
+  }
+
+
 
 
 }

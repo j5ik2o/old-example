@@ -10,4 +10,4 @@ import java.time.ZonedDateTime
  * @param createAt 作成日時
  * @param updateAt 更新日時
  */
-case class Todo(id: TodoId, text: String, createAt: ZonedDateTime, updateAt: ZonedDateTime)
+case class Todo(id: TodoId, text: String, createAt: ZonedDateTime, updateAt: ZonedDateTime, version: Long)

@@ -44,7 +44,9 @@ trait Tables {
 
     def updateAt = column[ZonedDateTime]("UPDATE_AT")
 
-    def * = (id, text, createAt, updateAt) <> (Todo.tupled, Todo.unapply)
+    def version = column[Long]("VERSION")
+
+    def * = (id, text, createAt, updateAt, version) <> (Todo.tupled, Todo.unapply)
 
   }
 
