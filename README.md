@@ -27,7 +27,7 @@ This project's objective is to show Example DDD with CQRS+Event Sourcing.
     - `TodoSupervisor` class is the supervisor for `TodoAggregate`.
     - `TodoShardFactory` class is the factory of `cluster-sharding`.
 1. Database Access Layer(for the Read Side)
-    - `TodoDao` is Data Access Object.
+    - `TodoDao` is the Data Access Object.
     - `TodoDas` is that wraps `TodoDao`.
 
 # License
