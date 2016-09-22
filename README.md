@@ -19,15 +19,15 @@ This project's objective is to show Example DDD with CQRS+Event Sourcing.
 1. API Layer
     - `Main` object is what for bootstrap.
     - `TodoWriteService` trait is the controller component for write side.
-    - `TodoReadService` trait is the controller component for read size.
+    - `TodoReadService` trait is the controller component for read side.
     - There are models in the `json` package.
-1. Domain Layer
+1. Domain Layer(for the Write Side)
     - `Todo` class is a state in the `TodoAggregate`.
     - `TodoAggregate` class is implemented by the Actor. It's DDD's Aggregate Root.
     - `TodoSupervisor` class is the supervisor for `TodoAggregate`.
     - `TodoShardFactory` class is the factory of `cluster-sharding`.
-1. Database Access Layer
-    - `TodoDao` is Data Access Object.
+1. Database Access Layer(for the Read Side)
+    - `TodoDao` is the Data Access Object.
     - `TodoDas` is that wraps `TodoDao`.
 
 # License
