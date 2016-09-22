@@ -1,4 +1,4 @@
-# Eaxmple for DDD/CQRS+ES
+# Example for DDD/CQRS+ES
 
 # Objective
 
