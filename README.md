@@ -30,7 +30,7 @@ This project's objective is to show Example DDD with CQRS+Event Sourcing.
     - `TodoDao` is Data Access Object.
     - `TodoDas` is that wraps `TodoDao`.
 
-# LICENSE 
+# License
 
 MIT License
 Copyright (c) 2016 Junichi Kato
